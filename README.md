@@ -5,15 +5,25 @@ it is worth noting that, these pins are meant for any specific purpose, hence th
 A GPIO Module provides an SoC or a processor to interact with external hardware world. Some such examples can be like reading a tactile button or a switch, driving
 an LED, or maybe controlling simple digital signals.
 The following figure shows the internal circuitry of a GPIO Pin Control: -
-
-<img width="626" height="452" alt="image" src="https://github.com/user-attachments/assets/d4aa294b-a95c-48ff-bc86-9bc6d4d3499a" />
+<figure>
+  <img width="626" height="452" alt="image" src="https://github.com/user-attachments/assets/d4aa294b-a95c-48ff-bc86-9bc6d4d3499a" />
+  <br><br>
+  <figcaption>
+    GPIO Port Controller
+  </figcaption>
+</figure>
 
 ## Project Design
 This project is aimed to design an APB based GPIO controller. Any high-speed processor cannot directly communicate with a peripheral device connected externally (since processors run at giga-hertz frequency, while external peripherals run from kilo-hertz to mega-hertz). In order to communicate, the processor uses something called, AXI-to-APB bridge. This bridge converts the AXI signals to APB signals. We will use these APB Signals to drive a GPIO controller.
 To do so, we need to design our own GPIO Port Controller. The Port Controller will communicate with the external pins and transfer messages between the AXI-to-APB bridge and the hardware external pins.
 The intended design will have two sub-blocks: - the APB Bus Interface and the GPIO Port Interface. These two sub-blocks will be wrapped inside a topmodule wrapper (the usual standard). The GPIO Port Interface will be connected to the external GPIO Pins. A top-level architecture of our intended design is shown below: -
-
-<img width="620" height="182" alt="Schematic Architecture" src="https://github.com/user-attachments/assets/8e97b4e4-6698-4759-be91-6463eff08303" />
+<figure>
+  <img width="620" height="182" alt="Schematic Architecture" src="https://github.com/user-attachments/assets/8e97b4e4-6698-4759-be91-6463eff08303" />
+  <br><br>
+  <figcaption>
+    Top-Level Architecture
+  </figcaption>
+</figure>
 
 The GPIO Controller has registers in it. These registers are configurable in nature. It is by configuring these registers that we can control the pins (and subsequently the external connected peripheral device). Each such register will have a unique address.
 
@@ -28,7 +38,7 @@ The APB Controller is the heart of the design. The APB Controller contains the v
 Two 32-bit registers are declared, and three addresses are chosen for them - **0x00**, **0x04**, **0x08**. These addresses are used when the master (SoC) will write some data to the APB interface. The APB interface will forward the data of the master. 0x00 is the address for the dataout register, 0x04 is the address for the direction register and 0x08 is the address for the datain register. All data (be it the data to be written out to the slave, or the data for the direction of the xpins) is carried by the PWDATA bus. Where the PWDATA bus will write the data, is chosen by the PADDR bus value, which currently points to three seperate registers. Much of the code explanation is provided in the code(s), in the form of comments. The following figure shows the elaborated diagram of the APB Controller (I had to take two seperate screenshots, since the original diagram was big).
 <figure>
 <img width="1591" height="712" alt="controller_elaborate_1" src="https://github.com/user-attachments/assets/75f34d8a-cf2f-46e9-99d7-a7d1975e936b" />
-  <br>
+  <br><br>
   <figcaption>
     Elaborated Diagram of APB Port Interface - 1
   </figcaption>
@@ -36,7 +46,7 @@ Two 32-bit registers are declared, and three addresses are chosen for them - **0
 
 <figure>
 <img width="713" height="797" alt="controller_elaborate-2" src="https://github.com/user-attachments/assets/3c3f2613-9e6b-4221-b3df-e7f0c6ee17d7" />
-  <br>
+  <br><br>
   <figcaption>
     Elaborated Diagram of APB Port Interface - 2
   </figcaption>
