@@ -28,6 +28,7 @@ The APB Controller is the heart of the design. The APB Controller contains the v
 Two 32-bit registers are declared, and three addresses are chosen for them - **0x00**, **0x04**, **0x08**. These addresses are used when the master (SoC) will write some data to the APB interface. The APB interface will forward the data of the master. 0x00 is the address for the dataout register, 0x04 is the address for the direction register and 0x08 is the address for the datain register. All data (be it the data to be written out to the slave, or the data for the direction of the xpins) is carried by the PWDATA bus. Where the PWDATA bus will write the data, is chosen by the PADDR bus value, which currently points to three seperate registers. Much of the code explanation is provided in the code(s), in the form of comments. The following figure shows the elaborated diagram of the APB Controller (I had to take two seperate screenshots, since the original diagram was big).
 <figure>
 <img width="1591" height="712" alt="controller_elaborate_1" src="https://github.com/user-attachments/assets/75f34d8a-cf2f-46e9-99d7-a7d1975e936b" />
+  <br>
   <figcaption>
     Elaborated Diagram of APB Port Interface - 1
   </figcaption>
@@ -35,6 +36,7 @@ Two 32-bit registers are declared, and three addresses are chosen for them - **0
 
 <figure>
 <img width="713" height="797" alt="controller_elaborate-2" src="https://github.com/user-attachments/assets/3c3f2613-9e6b-4221-b3df-e7f0c6ee17d7" />
+  <br>
   <figcaption>
     Elaborated Diagram of APB Port Interface - 2
   </figcaption>
