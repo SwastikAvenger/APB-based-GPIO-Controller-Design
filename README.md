@@ -24,7 +24,7 @@ The intended design will have two sub-blocks: - the APB Bus Interface and the GP
     Top-Level Architecture
   </figcaption>
 </figure>
-
+<br>
 The GPIO Controller has registers in it. These registers are configurable in nature. It is by configuring these registers that we can control the pins (and subsequently the external connected peripheral device). Each such register will have a unique address.
 
 ### The Port Interface
