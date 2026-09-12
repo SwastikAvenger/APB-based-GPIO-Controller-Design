@@ -53,4 +53,21 @@ Two 32-bit registers are declared, and three addresses are chosen for them - **0
 </figure>
 
 
+## Simulation Waveforms
+
+<figure>
+  <img width="1573" height="381" alt="port_inf" src="https://github.com/user-attachments/assets/862bbee6-b7b0-46ad-a39e-69af69e72025" />
+  <br><br>
+  <figcaption>
+    Simulation Waveform of GPIO Port Interface
+  </figcaption>
+</figure>
+<br><br><br>
+<figure>
+  <img width="1556" height="481" alt="cotroller" src="https://github.com/user-attachments/assets/a77a7045-e877-4eee-b731-dcf41bd0f426" />
+  <br><br>
+  <figcaption>
+    Simulation Waveform of APB Controller
+  </figcaption>
+</figure>
 
