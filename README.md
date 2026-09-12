@@ -1,4 +1,6 @@
 # APB Based GPIO Controller Design
+Hello everyone, I hope you all are doing well. Welcome to the design of APB protocol based GPIO controller. Here, we have designed and discussed about a GPIO Controller mechanism using the APB Protocol. Please go through the readme file before using the source files. Thank You.
+<br><br>
 ## Introduction to GPIO
 At the very basic level, GPIO refers to a set of pins on a computer's motherboard or an add-on card. These pins can send and/or receive electrical signals. However
 it is worth noting that, these pins are meant for any specific purpose, hence the term "General Purpose".
@@ -52,9 +54,19 @@ Two 32-bit registers are declared, and three addresses are chosen for them - **0
   </figcaption>
 </figure>
 
+### Top Module
+The topmodule connects all the sub-blocks together. There is no logic defined in the topmodule. Only the inter-connections of the different blocks with each other are defined.
+<br><br>
+<figure>
+  <img width="1580" height="612" alt="topmod_Elaboration" src="https://github.com/user-attachments/assets/6c10ec54-23f6-435a-8a08-0fe3a13c209e" />
+  <br><br>
+  <figcaption>
+    Top Module Elaborated Diagram
+  </figcaption>
+</figure>
 
 ## Simulation Waveforms
-
+  <br><br>
 <figure>
   <img width="1573" height="381" alt="port_inf" src="https://github.com/user-attachments/assets/862bbee6-b7b0-46ad-a39e-69af69e72025" />
   <br><br>
@@ -71,3 +83,33 @@ Two 32-bit registers are declared, and three addresses are chosen for them - **0
   </figcaption>
 </figure>
 
+## Reports
+  <br><br>
+<figure>
+  <img width="438" height="297" alt="Screenshot 2026-09-12 172059" src="https://github.com/user-attachments/assets/e2700519-2eb6-479d-9bac-b740338640c3" />
+  <br><br>
+  <figcaption>
+      Power Report
+  </figcaption>
+</figure>
+
+  <br><br>
+<figure>
+  <img width="733" height="262" alt="Screenshot 2026-09-12 172038" src="https://github.com/user-attachments/assets/d0a35fae-29a7-431d-bfd0-73ee9bb1bbb2" />
+  <br><br>
+  <figcaption>
+    Post Implementation Utilization Report
+  </figcaption>
+</figure>
+
+  <br><br>
+<figure>
+  <img width="1111" height="231" alt="Screenshot 2026-09-12 172122" src="https://github.com/user-attachments/assets/1d3887af-0c7b-4d18-96c1-179116a5351a" />
+  <br><br>
+    <figcaption>
+      Timing Report
+    </figcaption>
+</figure>
+
+## Using the project
+This project is free to be used by everyone. One can use this project as a reference to design their own implementation. Good Ideas should have no borders.
